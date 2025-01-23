@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        arrayStatistics();
+        arrayStatistics();
         System.out.println("Is palindrome: " + palindrome());
     }
     public static void arrayStatistics() {
