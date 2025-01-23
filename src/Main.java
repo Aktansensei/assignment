@@ -15,25 +15,36 @@ public class Main {
         int sum = numbers[0];
         int max = numbers[0];
         int min = numbers[0];
+        int secondMin = Integer.MAX_VALUE;
+        int secondMax = Integer.MIN_VALUE;
 
         for (int i = 1; i < numbers.length; i++) {
             System.out.print("Enter a number:");
             int num = scanner.nextInt();
             numbers[i] = num;
             sum += num;
-            if(num > max) {
+            if (num > max) {
+                secondMax = max;
                 max = num;
+            } else if (num > secondMax && num != max) {
+                secondMax = num;
             }
-            if(num < min) {
+
+            if (num < min) {
+                secondMin = min;
                 min = num;
+            } else if (num < secondMin && num != min) {
+                secondMin = num;
             }
         }
 
         System.out.println("\nArray: " + Arrays.toString(numbers));
         System.out.println("Sum:" + sum);
         System.out.println("Average:" + (double) sum/ numbers.length);
-        System.out.println("Min:" + min);
-        System.out.println("Max:" + max);
+        System.out.println("First Min:" + min);
+        System.out.println("Second Min:" + secondMin);
+        System.out.println("First Max:" + max);
+        System.out.println("Second Max:" + secondMax);
     }
     public static boolean palindrome() {
         Scanner scanner = new Scanner(System.in);
