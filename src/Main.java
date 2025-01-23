@@ -4,7 +4,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         arrayStatistics();
-        System.out.println("Is palindrome: " + palindrome());
+        if (palindrome()) {
+            System.out.println("It is a palindrome.");
+        } else {
+            System.out.println("It is not a palindrome.");
+        }
     }
     public static void arrayStatistics() {
         Scanner scanner = new Scanner(System.in);
@@ -50,8 +54,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Write a number or a word: ");
         String str = scanner.nextLine().trim();
-        for(int i = 0; i < str.length() / 2; i++) {
-            if(str.charAt(i) != str.charAt(str.length()-1-i)) {
+
+        str = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
                 return false;
             }
         }
